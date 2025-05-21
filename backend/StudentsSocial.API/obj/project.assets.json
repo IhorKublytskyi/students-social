@@ -2880,42 +2880,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\igorl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\gruto\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.API\\StudentsSocial.API.csproj",
+      "projectUniqueName": "D:\\Programming\\students-social\\backend\\StudentsSocial.API\\StudentsSocial.API.csproj",
       "projectName": "StudentsSocial.API",
-      "projectPath": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.API\\StudentsSocial.API.csproj",
-      "packagesPath": "C:\\Users\\igorl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.API\\obj\\",
+      "projectPath": "D:\\Programming\\students-social\\backend\\StudentsSocial.API\\StudentsSocial.API.csproj",
+      "packagesPath": "C:\\Users\\gruto\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\students-social\\backend\\StudentsSocial.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\igorl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\gruto\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.DataAccess.Postgres\\StudentsSocial.DataAccess.Postgres.csproj": {
-              "projectPath": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.DataAccess.Postgres\\StudentsSocial.DataAccess.Postgres.csproj"
+            "D:\\Programming\\students-social\\backend\\StudentsSocial.DataAccess.Postgres\\StudentsSocial.DataAccess.Postgres.csproj": {
+              "projectPath": "D:\\Programming\\students-social\\backend\\StudentsSocial.DataAccess.Postgres\\StudentsSocial.DataAccess.Postgres.csproj"
             },
-            "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.Infrastructure\\StudentsSocial.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.Infrastructure\\StudentsSocial.Infrastructure.csproj"
+            "D:\\Programming\\students-social\\backend\\StudentsSocial.Infrastructure\\StudentsSocial.Infrastructure.csproj": {
+              "projectPath": "D:\\Programming\\students-social\\backend\\StudentsSocial.Infrastructure\\StudentsSocial.Infrastructure.csproj"
             }
           }
         }
@@ -2930,7 +2923,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -2966,7 +2959,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
