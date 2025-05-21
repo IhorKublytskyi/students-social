@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JPUpkXqKz0A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\igorl\\OneDrive\\Desktop\\students-social\\backend\\StudentsSocial.Infrastructure\\StudentsSocial.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\igorl\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
