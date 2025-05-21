@@ -1,8 +1,13 @@
 import { useState } from 'react'
+import { Navigate } from 'react-router'
 
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 import PasswordStrengthBar from 'react-password-strength-bar'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
@@ -13,17 +18,19 @@ export default function SignupPage() {
     // States
     const [formData, setFormData] = useState({
         firstName: '',
-        secondName: '',
+        lastName: '',
         username: '',
         email: '',
+        birthDate: '',
         password: '',
         confirmPassword: ''
     })
 
     const [firstNameError, setFirstNameError] = useState(false)
-    const [secondNameError, setSecondNameError] = useState(false)
+    const [lastNameError, setLastNameError] = useState(false)
     const [usernameError, setUsernameError] = useState(false)
     const [emailError, setEmailError] = useState(false)
+    const [birthDateError, setBirthDateError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [confirmPasswordError, setConfirmPasswordError] = useState(false)
 
@@ -32,6 +39,9 @@ export default function SignupPage() {
     const [score, setScore] = useState(0)
 
     const [isLoading, setIsLoading] = useState(false)
+
+    const [error, setError] = useState('')
+    const [redirect, setRedirect] = useState(false)
 
     // Functions
     function handleChange(e) {
@@ -42,12 +52,14 @@ export default function SignupPage() {
         if (e.currentTarget.validity.valid) {
             if (name === 'firstName') {
                 setFirstNameError(false)
-            } else if (name === 'secondName') {
-                setSecondNameError(false)
+            } else if (name === 'lastName') {
+                setLastNameError(false)
             } else if (name === 'username') {
                 setUsernameError(false)
             } else if (name === 'email') {
                 setEmailError(false)
+            } else if (name === 'birthDate') {
+                setBirthDateError(false)
             } else if (name === 'password') {
                 setPasswordError(false)
             } else if (name === 'confirmPassword') {
@@ -56,8 +68,8 @@ export default function SignupPage() {
         } else {
             if (name === 'firstName') {
                 setFirstNameError(true)
-            } else if (name === 'secondName') {
-                setSecondNameError(true)
+            } else if (name === 'lastName') {
+                setLastNameError(true)
             } else if (name === 'username') {
                 setUsernameError(true)
             } else if (name === 'email') {
@@ -66,27 +78,59 @@ export default function SignupPage() {
         }
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
 
         if (score <= 1) {
             setPasswordError(true)
         } else {
-            if (formData.password === formData.confirmPassword) {
-                setConfirmPasswordError(false)
-                setIsLoading(true)
+            if (formData.birthDate !== '') {
+                if (formData.password === formData.confirmPassword) {
+                    setConfirmPasswordError(false)
+                    setBirthDateError(false)
+                    setIsLoading(true)
 
-                axios.post('/api/register', formData)
-                    .then(response => console.log(response))
-                    .catch(err => console.log(err))
-                    .finally(() => {
+                    const userData = {
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                        username: formData.username,
+                        email: formData.email,
+                        birthDate: formData.birthDate,
+                        password: formData.password
+                    }
+
+                    console.log(userData)
+
+                    try {
+                        const response = await axios.post(
+                            '/api/register',
+                            userData,
+                            {
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            }
+                        )
+
+                        setRedirect(true)
+                    } catch (error) {
+                        setError(error.response.data)
+                    } finally {
                         setIsLoading(false)
-                    })
+                    }
 
+                } else {
+                    setConfirmPasswordError(true)
+                }
             } else {
-                setConfirmPasswordError(true)
+                setBirthDateError(true)
             }
         }
+    }
+
+    function handleBirthDateChange(newValue) {
+        setFormData(prevData => ({ ...prevData, birthDate: newValue }))
+        setBirthDateError(false)
     }
 
     function handleScoreChange(score) {
@@ -95,6 +139,10 @@ export default function SignupPage() {
 
     function togglePasswordShow() {
         setIsPasswordShow(prevShow => !prevShow)
+    }
+
+    if (redirect) {
+        return <Navigate to='/' />
     }
 
     return (
@@ -114,19 +162,21 @@ export default function SignupPage() {
                         inputProps={{ maxLength: 20 }}
                         required
                         fullWidth
+                        autoComplete='on'
                     />
                     <TextField
-                        id='secondName'
-                        name='secondName'
-                        label='Second Name'
+                        id='lastName'
+                        name='lastName'
+                        label='Last Name'
                         variant='outlined'
                         placeholder='Horlach'
-                        value={formData.secondName}
+                        value={formData.lastName}
                         onChange={handleChange}
-                        error={secondNameError}
+                        error={lastNameError}
                         inputProps={{ maxLength: 20 }}
                         fullWidth
                         required
+                        autoComplete='on'
                     />
                 </Stack>
                 <TextField
@@ -141,6 +191,7 @@ export default function SignupPage() {
                     inputProps={{ maxLength: 20 }}
                     fullWidth
                     required
+                    autoComplete='on'
                 />
                 <TextField
                     id='email'
@@ -155,13 +206,28 @@ export default function SignupPage() {
                     helperText={emailError ? 'Email is not valid' : ''}
                     fullWidth
                     required
+                    autoComplete='on'
                 />
-                <Stack 
-                    spacing={2} 
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                        label="Pick your birth date"
+                        value={formData.birthDate != '' ? formData.birthDate : null}
+                        onChange={handleBirthDateChange}
+                        slotProps={{
+                            textField: {
+                                helperText: birthDateError ? 
+                                    "Please enter your birth data" 
+                                    : ''
+                            },
+                        }}
+                    />
+                </LocalizationProvider>
+                <Stack
+                    spacing={2}
                     direction='column'
                 >
                     <Stack
-                        spacing={2} 
+                        spacing={2}
                         direction='column'
                         sx={{
                             position: 'relative',
@@ -180,8 +246,8 @@ export default function SignupPage() {
                             helperText={passwordError ? "Password must be stronger" : ''}
                             required
                         />
-                        <Button 
-                            variant='text' 
+                        <Button
+                            variant='text'
                             className='eye-button'
                             onClick={togglePasswordShow}
                         >
@@ -208,8 +274,9 @@ export default function SignupPage() {
                     fullWidth
                     required
                 />
-                <Button 
-                    variant='contained' 
+                {error ? <p className="warning-text">{error}</p> : null}
+                <Button
+                    variant='contained'
                     type='submit'
                     loading={isLoading}
                 >Sign up</Button>
