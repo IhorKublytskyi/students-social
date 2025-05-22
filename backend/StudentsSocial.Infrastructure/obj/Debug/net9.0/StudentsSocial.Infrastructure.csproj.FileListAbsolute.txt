@@ -23,6 +23,7 @@ C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastru
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\refint\StudentsSocial.Infrastructure.dll
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.pdb
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\ref\StudentsSocial.Infrastructure.dll
+<<<<<<< HEAD
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Infrastructure.deps.json
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Infrastructure.dll
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Infrastructure.pdb
@@ -36,3 +37,6 @@ D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\n
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\refint\StudentsSocial.Infrastructure.dll
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.pdb
 D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\ref\StudentsSocial.Infrastructure.dll
+=======
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.sourcelink.json
+>>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2
