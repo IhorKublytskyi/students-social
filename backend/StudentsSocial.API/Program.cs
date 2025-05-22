@@ -17,18 +17,18 @@ builder.Services.AddScoped<UsersRepository>();
 var app = builder.Build();
 
 app.MapPost("/api/register", async (
-    RegisterDto registerData, 
-    IPasswordHasher passwordHasher, 
-    UsersRepository usersRepository ) =>
+    RegisterDto registerData,
+    IPasswordHasher passwordHasher,
+    UsersRepository usersRepository) =>
 {
     var user = await usersRepository.GetByEmail(registerData.Email);
-    
+
     if (user != null)
         return Results.BadRequest("This e-mail is already taken.");
-    
+
     if (!new EmailAddressAttribute().IsValid(registerData.Email))
         return Results.BadRequest("Email is invalid.");
-    
+
     user = new UserEntity()
     {
         Id = Guid.NewGuid(),
@@ -40,22 +40,23 @@ app.MapPost("/api/register", async (
         CreatedAt = DateTime.UtcNow
     };
     await usersRepository.Add(user);
-    
-    return Results.Ok("You have successfully registered");
-});
-app.MapGet("/api/login", async (
-    LoginDto loginData, 
-    UsersRepository usersRepository, 
-    IPasswordHasher passwordHasher) =>
-{
-    var user = await usersRepository.GetByEmail(loginData.Email);
-    
-    if (user == null)
-        return Results.BadRequest("User was not found.");
 
-    if (!passwordHasher.VerifyHashedPassword(loginData.Password, user.PasswordHash))
-        return Results.BadRequest("Invalid password.");
-    return Results.Ok();
+    return Results.Ok("You have successfully registered.");
 });
+
+// app.MapGet("/api/login", async (
+//     LoginDto loginData, 
+//     UsersRepository usersRepository, 
+//     IPasswordHasher passwordHasher) =>
+// {
+//     var user = await usersRepository.GetByEmail(loginData.Email);
+    
+//     if (user == null)
+//         return Results.BadRequest("User was not found.");
+
+//     if (!passwordHasher.VerifyHashedPassword(loginData.Password, user.PasswordHash))
+//         return Results.BadRequest("Invalid password.");
+//     return Results.Ok();
+// });
 
 app.Run();
