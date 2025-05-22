@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Navigate } from 'react-router'
+import { Link, Navigate } from 'react-router'
 
-import axios from 'axios'
+import axios from '../axiosConfig'
 import dayjs from 'dayjs'
 
 import PasswordStrengthBar from 'react-password-strength-bar'
@@ -21,7 +21,7 @@ export default function SignupPage() {
         lastName: '',
         username: '',
         email: '',
-        birthDate: '',
+        birthDate: null,
         password: '',
         confirmPassword: ''
     })
@@ -81,29 +81,29 @@ export default function SignupPage() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (score <= 1) {
-            setPasswordError(true)
-        } else {
+        if (score > 1) {
             if (formData.birthDate !== '') {
                 if (formData.password === formData.confirmPassword) {
                     setConfirmPasswordError(false)
                     setBirthDateError(false)
                     setIsLoading(true)
 
+                    // Format date
+                    const {$M: month, $D: day, $y: year} = formData.birthDate
+                    const date = `${month + 1}/${day}/${year}`
+
                     const userData = {
                         firstName: formData.firstName,
                         lastName: formData.lastName,
                         username: formData.username,
                         email: formData.email,
-                        birthDate: formData.birthDate,
+                        birthDate: date,
                         password: formData.password
                     }
 
-                    console.log(userData)
-
                     try {
                         const response = await axios.post(
-                            '/api/register',
+                            '/register',
                             userData,
                             {
                                 headers: {
@@ -125,20 +125,14 @@ export default function SignupPage() {
             } else {
                 setBirthDateError(true)
             }
+        } else {
+            setPasswordError(true)
         }
     }
 
     function handleBirthDateChange(newValue) {
         setFormData(prevData => ({ ...prevData, birthDate: newValue }))
         setBirthDateError(false)
-    }
-
-    function handleScoreChange(score) {
-        setScore(score)
-    }
-
-    function togglePasswordShow() {
-        setIsPasswordShow(prevShow => !prevShow)
     }
 
     if (redirect) {
@@ -211,12 +205,12 @@ export default function SignupPage() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         label="Pick your birth date"
-                        value={formData.birthDate != '' ? formData.birthDate : null}
+                        value={formData.birthDate}
                         onChange={handleBirthDateChange}
                         slotProps={{
                             textField: {
                                 helperText: birthDateError ? 
-                                    "Please enter your birth data" 
+                                    <span className='warning-text'>Please enter your birth data</span> 
                                     : ''
                             },
                         }}
@@ -249,7 +243,7 @@ export default function SignupPage() {
                         <Button
                             variant='text'
                             className='eye-button'
-                            onClick={togglePasswordShow}
+                            onClick={() => setIsPasswordShow(prevShow => !prevShow)}
                         >
                             <VisibilityIcon />
                         </Button>
@@ -258,7 +252,7 @@ export default function SignupPage() {
                         password={formData.password}
                         shortScoreWord={'Too short'}
                         scoreWords={['Too weak', 'Weak', 'Okay', 'Good', 'Strong']}
-                        onChangeScore={handleScoreChange}
+                        onChangeScore={(score) => setScore(score)}
                     />
                 </Stack>
                 <TextField
@@ -280,6 +274,7 @@ export default function SignupPage() {
                     type='submit'
                     loading={isLoading}
                 >Sign up</Button>
+                <p className='auth-form__text'>Already have an account? <Link to='/login'>Login</Link></p>
             </form>
         </>
     )

@@ -9,6 +9,11 @@
 
 body {
     line-height: 1.5;
+    background-color: whitesmoke;
+}
+
+a {
+    color: inherit;
 }
 
 #root {
@@ -44,6 +49,11 @@ body {
     flex-direction: column;
     max-width: 500px;
     gap: 15px;
+
+    &__text {
+        margin-top: 10px;
+        text-align: center;
+    }
 }
 
 .warning-text {
