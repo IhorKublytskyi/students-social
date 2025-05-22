@@ -33,3 +33,4 @@ C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.DataAcces
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.DataAccess.Postgres\obj\Debug\net9.0\StudentsSocial.DataAccess.Postgres.pdb
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.DataAccess.Postgres\obj\Debug\net9.0\StudentsSocial.DataAccess.Postgres.genruntimeconfig.cache
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.DataAccess.Postgres\obj\Debug\net9.0\ref\StudentsSocial.DataAccess.Postgres.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.DataAccess.Postgres\obj\Debug\net9.0\StudentsSocial.DataAccess.Postgres.sourcelink.json

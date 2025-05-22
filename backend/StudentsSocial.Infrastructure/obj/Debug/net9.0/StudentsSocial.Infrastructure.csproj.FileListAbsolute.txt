@@ -23,3 +23,4 @@ C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastru
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\refint\StudentsSocial.Infrastructure.dll
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.pdb
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\ref\StudentsSocial.Infrastructure.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.sourcelink.json
