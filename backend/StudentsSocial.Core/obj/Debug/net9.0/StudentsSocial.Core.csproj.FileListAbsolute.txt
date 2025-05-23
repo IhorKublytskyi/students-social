@@ -10,3 +10,30 @@ C:\Users\igorl\OneDrive\Desktop\students-social\StudentsSocial.Core\obj\Debug\ne
 C:\Users\igorl\OneDrive\Desktop\students-social\StudentsSocial.Core\obj\Debug\net9.0\refint\StudentsSocial.Core.dll
 C:\Users\igorl\OneDrive\Desktop\students-social\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.pdb
 C:\Users\igorl\OneDrive\Desktop\students-social\StudentsSocial.Core\obj\Debug\net9.0\ref\StudentsSocial.Core.dll
+<<<<<<< HEAD
+D:\Programming\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.deps.json
+D:\Programming\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.dll
+D:\Programming\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.pdb
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.AssemblyInfoInputs.cache
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.AssemblyInfo.cs
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.csproj.CoreCompileInputs.cache
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.sourcelink.json
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.dll
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\refint\StudentsSocial.Core.dll
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.pdb
+D:\Programming\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\ref\StudentsSocial.Core.dll
+=======
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.deps.json
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\bin\Debug\net9.0\StudentsSocial.Core.pdb
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.AssemblyInfoInputs.cache
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.AssemblyInfo.cs
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.csproj.CoreCompileInputs.cache
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.sourcelink.json
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\refint\StudentsSocial.Core.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\StudentsSocial.Core.pdb
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Core\obj\Debug\net9.0\ref\StudentsSocial.Core.dll
+>>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2

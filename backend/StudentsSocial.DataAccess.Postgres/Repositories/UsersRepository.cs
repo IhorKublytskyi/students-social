@@ -23,5 +23,9 @@ public class UsersRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(u => u.Email == email);
     }
+    public async Task<bool> ExistsByUsername(string username)
+    {
+        return await _dbContext.Users.AsNoTracking().AnyAsync(u => u.Username == username);
+    }
 
 }
