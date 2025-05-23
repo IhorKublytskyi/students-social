@@ -403,3 +403,11 @@ C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\obj\D
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\obj\Debug\net9.0\StudentsSocial.API.genruntimeconfig.cache
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\obj\Debug\net9.0\ref\StudentsSocial.API.dll
 >>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
