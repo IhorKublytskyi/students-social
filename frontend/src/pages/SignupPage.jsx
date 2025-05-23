@@ -17,13 +17,13 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 export default function SignupPage() {
     // States
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
+        firstName: 'Horlach',
+        lastName: 'Artan',
+        username: 'artan123',
+        email: 'artan@gmail.com',
         birthDate: null,
-        password: '',
-        confirmPassword: ''
+        password: 'artan@gmail.com',
+        confirmPassword: 'artan@gmail.com'
     })
 
     const [firstNameError, setFirstNameError] = useState(false)
@@ -82,8 +82,9 @@ export default function SignupPage() {
         e.preventDefault()
 
         if (score > 1) {
-            if (formData.birthDate !== '') {
+            if (formData.birthDate) {
                 if (formData.password === formData.confirmPassword) {
+                    
                     setConfirmPasswordError(false)
                     setBirthDateError(false)
                     setIsLoading(true)
@@ -114,6 +115,8 @@ export default function SignupPage() {
 
                         setRedirect(true)
                     } catch (error) {
+                        console.log(error)
+                        
                         setError(error.response.data)
                     } finally {
                         setIsLoading(false)
@@ -136,7 +139,7 @@ export default function SignupPage() {
     }
 
     if (redirect) {
-        return <Navigate to='/' />
+        return <Navigate to='/login' state={{message: 'You have successfully registered'}} />
     }
 
     return (

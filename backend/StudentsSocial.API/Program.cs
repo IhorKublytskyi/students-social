@@ -1,4 +1,7 @@
 using DataAccess.Postgres;
+using Microsoft.EntityFrameworkCore;
+using StudentsSocial.Core.Entities;
+using System.Globalization;
 using StudentsSocial.Infrastructure;
 using backend.Dto_S;
 using DataAccess.Postgres.Repositories;
@@ -9,28 +12,26 @@ builder.Services.AddDbContext<StudentsSocialDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("StudentsSocial"));
 });
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
-builder.Services.AddScoped<ErrorMessage>();
 builder.Services.AddScoped<UsersRepository>();
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var app = builder.Build();
     
 app.MapPost("/api/register", async (
     RegisterDto registerData, 
     IPasswordHasher passwordHasher, 
-    UsersRepository usersRepository,
-    ErrorMessage errorMessage = null ) =>
+    UsersRepository usersRepository) =>
 {
     var user = await usersRepository.GetByEmail(registerData.Email);
 
     if (await usersRepository.ExistsByUsername(registerData.Username))
     {
-        errorMessage = new ErrorMessage("This username is already taken", "username-taken");
-        return Results.BadRequest(errorMessage);
+        return Results.BadRequest("This username is already taken");
     }
     if (user != null)
     {
-        errorMessage = new ErrorMessage("This e-mail is already taken", "email-taken");
-        return Results.BadRequest(errorMessage);
+        return Results.BadRequest("This e-mail is already taken");
     }
     
     user = new UserEntity()
@@ -41,7 +42,7 @@ app.MapPost("/api/register", async (
         Username = registerData.Username,
         FirstName = registerData.FirstName,
         LastName = registerData.LastName,
-        BirthDate = registerData.BirthDate,
+        BirthDate = DateTime.Parse(registerData.BirthDate),
         CreatedAt = DateTime.UtcNow
     };
     await usersRepository.Add(user);
