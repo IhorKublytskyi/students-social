@@ -1,6 +1,4 @@
 using DataAccess.Postgres;
-using Microsoft.EntityFrameworkCore;
-using StudentsSocial.Core.Entities;
 using StudentsSocial.Infrastructure;
 using backend.Dto_S;
 using DataAccess.Postgres.Repositories;
@@ -17,20 +15,6 @@ builder.Services.AddScoped<UsersRepository>();
 var app = builder.Build();
     
 app.MapPost("/api/register", async (
-<<<<<<< HEAD
-    RegisterDto registerData,
-    IPasswordHasher passwordHasher,
-    UsersRepository usersRepository) =>
-{
-    var user = await usersRepository.GetByEmail(registerData.Email);
-
-    if (user != null)
-        return Results.BadRequest("This e-mail is already taken.");
-
-    if (!new EmailAddressAttribute().IsValid(registerData.Email))
-        return Results.BadRequest("Email is invalid.");
-
-=======
     RegisterDto registerData, 
     IPasswordHasher passwordHasher, 
     UsersRepository usersRepository,
@@ -49,7 +33,6 @@ app.MapPost("/api/register", async (
         return Results.BadRequest(errorMessage);
     }
     
->>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2
     user = new UserEntity()
     {
         Id = Guid.NewGuid(),
@@ -62,11 +45,6 @@ app.MapPost("/api/register", async (
         CreatedAt = DateTime.UtcNow
     };
     await usersRepository.Add(user);
-<<<<<<< HEAD
-
-    return Results.Ok("You have successfully registered.");
-});
-=======
     
     return Results.Ok("You have successfully registered");
 });
@@ -85,7 +63,6 @@ app.MapPost("/api/register", async (
 
 //     return Results.Ok();
 // });
->>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2
 
 // app.MapGet("/api/login", async (
 //     LoginDto loginData, 
