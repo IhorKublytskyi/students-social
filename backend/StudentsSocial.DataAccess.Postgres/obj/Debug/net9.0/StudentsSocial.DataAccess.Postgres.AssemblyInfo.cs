@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudentsSocial.DataAccess.Postgres")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+957a0e4b21dd105a53fd5676c17ad64afd7fdda1")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92b1dbb87546bbc01f94e7e2b7df032e22c928c2")]
+>>>>>>> deefd2cd8453bb7b85f5006cc0d8e0bbd0733738
 [assembly: System.Reflection.AssemblyProductAttribute("StudentsSocial.DataAccess.Postgres")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudentsSocial.DataAccess.Postgres")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
