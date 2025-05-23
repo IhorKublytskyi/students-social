@@ -1,18 +1,44 @@
+using System.Text;
 using DataAccess.Postgres;
 using Microsoft.EntityFrameworkCore;
 using StudentsSocial.Core.Entities;
-using System.Globalization;
 using StudentsSocial.Infrastructure;
 using backend.Dto_S;
 using DataAccess.Postgres.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateLifetime = true,
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1"))
+        };
+    });
+builder.Services.AddAuthorization();
+
 builder.Services.AddDbContext<StudentsSocialDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("StudentsSocial"));
 });
+
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<JwtOptions>();
+builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<UsersRepository>();
+
+
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
@@ -49,35 +75,32 @@ app.MapPost("/api/register", async (
     
     return Results.Ok("You have successfully registered");
 });
-// app.MapGet("/api/login", async (
-//     LoginDto loginData, 
-//     UsersRepository usersRepository, 
-//     IPasswordHasher passwordHasher) =>
-// {
-//     var user = await usersRepository.GetByEmail(loginData.Email);
-    
-//     if (user == null)
-//         return Results.BadRequest("User was not found.");
 
-//     if (!passwordHasher.VerifyHashedPassword(loginData.Password, user.PasswordHash))
-//         return Results.BadRequest("Invalid password.");
+app.MapGet("/api/login", async (
+    [FromBody]LoginDto loginData, 
+    UsersRepository usersRepository,
+    IPasswordHasher passwordHasher,
+    IJwtProvider jwtProvider,
+    IConfiguration config) =>
+{
+    var sections = config.GetChildren();
+    foreach (var VARIABLE in sections)
+    {
+        Console.WriteLine(VARIABLE.Value);
+    }
+    var user = await usersRepository.GetByEmail(loginData.Email);
+    if (user == null)
+    {
+        return Results.BadRequest("The user with this email address does not exist");
+    }
 
-//     return Results.Ok();
-// });
+    if (!passwordHasher.VerifyHashedPassword(loginData.Password, user.PasswordHash))
+    {
+        return Results.BadRequest("Invalid email or password");
+    }
 
-// app.MapGet("/api/login", async (
-//     LoginDto loginData, 
-//     UsersRepository usersRepository, 
-//     IPasswordHasher passwordHasher) =>
-// {
-//     var user = await usersRepository.GetByEmail(loginData.Email);
-    
-//     if (user == null)
-//         return Results.BadRequest("User was not found.");
+    var token = jwtProvider.GenerateToken(user);
 
-//     if (!passwordHasher.VerifyHashedPassword(loginData.Password, user.PasswordHash))
-//         return Results.BadRequest("Invalid password.");
-//     return Results.Ok();
-// });
-
+    return Results.Ok(token);
+});
 app.Run();

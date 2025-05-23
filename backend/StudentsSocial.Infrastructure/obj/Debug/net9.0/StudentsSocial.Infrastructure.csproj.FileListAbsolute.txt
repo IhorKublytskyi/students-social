@@ -40,3 +40,6 @@ D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\n
 =======
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\StudentsSocial.Infrastructure.sourcelink.json
 >>>>>>> 92b1dbb87546bbc01f94e7e2b7df032e22c928c2
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.dll
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.pdb
+C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\Students.0F6D0059.Up2Date
