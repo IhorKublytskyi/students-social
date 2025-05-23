@@ -16,6 +16,10 @@ a {
     color: inherit;
 }
 
+ul {
+    list-style-type: none;
+}
+
 #root {
     min-height: 100vh;
     display: flex;
@@ -28,17 +32,13 @@ a {
 
 .main {
     flex: 1;
+    padding-bottom: 50px;
 }
 
 .container {
     max-width: 1230px;
     padding: 0 15px;
     margin: 0 auto;
-}
-
-.page-title {
-    font-weight: 500;
-    text-align: center;
 }
 
 .auth-form {
@@ -50,15 +50,45 @@ a {
     max-width: 500px;
     gap: 15px;
 
+    &__wrapper {
+        align-self: center;
+    }
+
+    &__title {
+        font-weight: 500;
+        text-align: center;
+        margin: 15px 0;
+    }
+
     &__text {
         margin-top: 10px;
         text-align: center;
     }
 }
 
+.message-text {
+    font-weight: 500;
+    border-radius: 2px;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+
+    svg {
+        font-size: 20px;
+    }
+
+    &--success {
+        background-color: #9de897;
+        color: #11450d;
+    }
+}
+
 .warning-text {
     font-weight: 400;
-    color: #EF4836;
+    color: #ef4836;
 }
 
 .eye-button {
@@ -71,4 +101,20 @@ a {
 
 .footer {
     padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__text {
+        width: 100%;
+        text-align: center;
+    }
 }

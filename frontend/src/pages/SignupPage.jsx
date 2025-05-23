@@ -17,13 +17,13 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 export default function SignupPage() {
     // States
     const [formData, setFormData] = useState({
-        firstName: 'Horlach',
-        lastName: 'Artan',
-        username: 'artan123',
-        email: 'artan@gmail.com',
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
         birthDate: null,
-        password: 'artan@gmail.com',
-        confirmPassword: 'artan@gmail.com'
+        password: '',
+        confirmPassword: ''
     })
 
     const [firstNameError, setFirstNameError] = useState(false)
@@ -115,8 +115,6 @@ export default function SignupPage() {
 
                         setRedirect(true)
                     } catch (error) {
-                        console.log(error)
-                        
                         setError(error.response.data)
                     } finally {
                         setIsLoading(false)
@@ -144,7 +142,7 @@ export default function SignupPage() {
 
     return (
         <>
-            <h1 className='page-title'>Sign up</h1>
+            <h1 className='auth-form__title'>Sign up</h1>
             <form className='auth-form' onSubmit={handleSubmit}>
                 <Stack spacing={2} direction='row'>
                     <TextField
