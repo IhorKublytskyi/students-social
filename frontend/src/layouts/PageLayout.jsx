@@ -6,11 +6,7 @@ export default function PageLayout() {
     return (
         <>
             <Header />
-            <main className='main'>
-                <div className='container'>
-                    <Outlet />
-                </div>
-            </main>
+            <Outlet />
             <Footer />
         </>
     )

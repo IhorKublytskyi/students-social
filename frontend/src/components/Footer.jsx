@@ -3,7 +3,9 @@ import { Link } from 'react-router'
 export default function Footer() {
     return (
         <footer className='footer'>
-            <Link className='footer__logo' to='/'>StudentsSocial</Link>
+            <Link className='logo' to='/'>
+                <p className="logo__text">StudensSocial</p>
+            </Link>
             <nav className='footer__nav'>
                 <ul className='footer__list'>
                     <li className='footer__list-item'>

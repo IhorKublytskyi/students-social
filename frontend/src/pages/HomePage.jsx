@@ -1,7 +1,9 @@
 export default function HomePage() {
     return (
-        <>
-            <h1>HomePage</h1>
-        </>
+        <main className='main'>
+            <div className='container'>
+                <h1>HomePage</h1>
+            </div>
+        </main>
     )
 }

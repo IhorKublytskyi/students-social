@@ -13,7 +13,12 @@ body {
 }
 
 a {
+    text-decoration: none;
     color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 ul {
@@ -27,12 +32,37 @@ ul {
 }
 
 .header {
-    padding: 20px 40px;
+    background-color: #fff;
+    padding: 20px 15px;
+    border-bottom: 1px solid #DADADA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+        &-img {
+            display: block;
+
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 }
 
 .main {
     flex: 1;
-    padding-bottom: 50px;
+    padding: 30px 0;
+
+    &--auth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .container {
@@ -42,27 +72,25 @@ ul {
 }
 
 .auth-form {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto 0;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    width: 500px;
     gap: 15px;
 
-    &__wrapper {
-        align-self: center;
-    }
-
     &__title {
-        font-weight: 500;
+        font-size: 28px;
+        font-weight: 400;
         text-align: center;
-        margin: 15px 0;
     }
 
     &__text {
         margin-top: 10px;
         text-align: center;
+
+        a {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -87,6 +115,13 @@ ul {
     }
 }
 
+.alert {
+    &--success {
+        margin: 0 0 15px;
+        border: 1px solid #1e4620 !important;
+    }
+}
+
 .warning-text {
     font-weight: 400;
     color: #ef4836;
@@ -98,10 +133,17 @@ ul {
     right: 10px;
     margin: 0 !important;
     min-width: 40px !important;
+    color: #b0b0b0ee !important;
+
+    &.show {
+        color: #1976D2 !important;  
+    }
 }
 
 .footer {
-    padding: 20px 40px;
+    border-top: 1px solid #DADADA;
+    background-color: #fff;
+    padding: 30px 15px 20px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -115,7 +157,13 @@ ul {
     }
 
     &__text {
+        border-top: 1px solid #C0C0C0;
+        padding-top: 20px;
         width: 100%;
         text-align: center;
+
+        a {
+            text-decoration: underline;
+        }
     }
 }

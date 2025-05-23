@@ -5,6 +5,7 @@ import axios from '../axiosConfig'
 import { useLocation, Link, Navigate } from 'react-router'
 
 import TextField from '@mui/material/TextField'
+import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import VisibilityIcon from '@mui/icons-material/Visibility'
@@ -67,7 +68,7 @@ export default function LoginPage() {
             if (response.status === 200) {
                 localStorage.setItem('auth-token', response.data)
                 localStorage.setItem('email', formData.email)
-                
+
                 setRedirect(true)
             }
         } catch (error) {
@@ -83,61 +84,64 @@ export default function LoginPage() {
     }
 
     return (
-        <>
-            {location.state?.message ? <p className='message-text message-text--success'><CheckCircleOutlineOutlinedIcon />{location.state.message}</p> : null}
-            <h1 className='auth-form__title'>Login</h1>
-            <form className='auth-form' onSubmit={handleSubmit}>
-                <TextField
-                    id='email'
-                    name='email'
-                    label='Email'
-                    variant='outlined'
-                    type='email'
-                    placeholder='horlach@example.com'
-                    value={formData.email}
-                    onChange={handleChange}
-                    error={emailError}
-                    helperText={emailError ? 'Email is not valid' : ''}
-                    required
-                    fullWidth
-                    autoComplete='on'
-                />
-                <Stack
-                    spacing={2}
-                    direction='column'
-                    sx={{
-                        position: 'relative',
-                        marginTop: '0px'
-                    }}
-                >
+        <main className='main main--auth'>
+            <div className='auth-form__wrapper'>
+                {location.state?.message ? <Alert className='alert--success' severity="success">{location.state.message}</Alert> : null}
+                <h1 className='auth-form__title'>Welcome Back 👋</h1>
+                <p className="auth-form__text">Log in to your account to continue where you left off.</p>
+                <form className='auth-form' onSubmit={handleSubmit}>
                     <TextField
-                        id='password'
-                        name='password'
-                        label='Password'
+                        id='email'
+                        name='email'
+                        label='Email'
                         variant='outlined'
-                        type={isPasswordShow ? 'text' : 'password'}
-                        value={formData.password}
+                        type='email'
+                        placeholder='horlach@example.com'
+                        value={formData.email}
                         onChange={handleChange}
-                        error={passwordError}
-                        helperText={passwordError ? "Password must be stronger" : ''}
+                        error={emailError}
+                        helperText={emailError ? 'Email is not valid' : ''}
                         required
+                        fullWidth
+                        autoComplete='on'
                     />
-                    <Button
-                        variant='text'
-                        className='eye-button'
-                        onClick={() => setIsPasswordShow(prevShow => !prevShow)}
+                    <Stack
+                        spacing={2}
+                        direction='column'
+                        sx={{
+                            position: 'relative',
+                            marginTop: '0px'
+                        }}
                     >
-                        <VisibilityIcon />
-                    </Button>
-                </Stack>
-                {error ? <p className="warning-text">{error}</p> : null}
-                <Button
-                    variant='contained'
-                    type='submit'
-                    loading={isLoading}
-                >Login</Button>
-                <p className='auth-form__text'>Don't have an account yet? <Link to='/signup'>Sign up</Link></p>
-            </form>
-        </>
+                        <TextField
+                            id='password'
+                            name='password'
+                            label='Password'
+                            variant='outlined'
+                            type={isPasswordShow ? 'text' : 'password'}
+                            value={formData.password}
+                            onChange={handleChange}
+                            error={passwordError}
+                            helperText={passwordError ? "Password must be stronger" : ''}
+                            required
+                        />
+                        <Button
+                            variant='text'
+                            className={`eye-button${isPasswordShow ? ' show' : ''}`}
+                            onClick={() => setIsPasswordShow(prevShow => !prevShow)}
+                        >
+                            <VisibilityIcon />
+                        </Button>
+                    </Stack>
+                    {error ? <p className="warning-text">{error}</p> : null}
+                    <Button
+                        variant='contained'
+                        type='submit'
+                        loading={isLoading}
+                    >Login</Button>
+                    <p className='auth-form__text'>Don't have an account yet? <Link to='/signup'>Sign up</Link></p>
+                </form>
+            </div>
+        </main>
     )
 }
