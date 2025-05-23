@@ -76,18 +76,13 @@ app.MapPost("/api/register", async (
     return Results.Ok("You have successfully registered");
 });
 
-app.MapGet("/api/login", async (
+app.MapPost("/api/login", async (
     [FromBody]LoginDto loginData, 
     UsersRepository usersRepository,
     IPasswordHasher passwordHasher,
     IJwtProvider jwtProvider,
     IConfiguration config) =>
 {
-    var sections = config.GetChildren();
-    foreach (var VARIABLE in sections)
-    {
-        Console.WriteLine(VARIABLE.Value);
-    }
     var user = await usersRepository.GetByEmail(loginData.Email);
     if (user == null)
     {

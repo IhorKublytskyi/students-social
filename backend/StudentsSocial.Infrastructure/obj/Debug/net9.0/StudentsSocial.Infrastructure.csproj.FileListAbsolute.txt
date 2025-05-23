@@ -43,3 +43,6 @@ C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastru
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.dll
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.pdb
 C:\Users\igorl\OneDrive\Desktop\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\Students.0F6D0059.Up2Date
+D:\Programming\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.dll
+D:\Programming\students-social\backend\StudentsSocial.Infrastructure\bin\Debug\net9.0\StudentsSocial.Core.pdb
+D:\Programming\students-social\backend\StudentsSocial.Infrastructure\obj\Debug\net9.0\Students.0F6D0059.Up2Date

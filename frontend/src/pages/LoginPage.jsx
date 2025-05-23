@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import axios from '../axiosConfig'
+
 import { useLocation, Link, Navigate } from 'react-router'
 
 import TextField from '@mui/material/TextField'
@@ -53,7 +55,7 @@ export default function LoginPage() {
         setIsLoading(true)
 
         try {
-            const response = await axios('/login', 
+            const response = await axios.post('/login',
                 formData,
                 {
                     headers: {
@@ -62,17 +64,22 @@ export default function LoginPage() {
                 }
             )
 
-            setRedirect(true)
-
+            if (response.status === 200) {
+                localStorage.setItem('auth-token', response.data)
+                localStorage.setItem('email', formData.email)
+                
+                setRedirect(true)
+            }
         } catch (error) {
             setError(error.response.data)
+
         } finally {
             setIsLoading(false)
         }
     }
 
     if (redirect) {
-        return <Navigate to='/login' state={{message: 'You have successfully registered'}} />
+        return <Navigate to='/' state={{ message: 'You have successfully locked in' }} />
     }
 
     return (

@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from 'react-router'
 
 export default function AuthLayout() {
-    const user = true
+    const isLogged = localStorage.getItem('email') ? true : false
 
-    return user ? <Outlet /> : <Navigate to='/login' />
+    return isLogged ? <Outlet /> : <Navigate to='/login' />
 }
