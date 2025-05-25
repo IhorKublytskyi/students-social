@@ -1,10 +1,12 @@
 import { Link } from 'react-router'
 
+import logo from '../assets/images/logo.svg'
+
 export default function Footer() {
     return (
         <footer className='footer'>
             <Link className='logo' to='/'>
-                <p className="logo__text">StudensSocial</p>
+                <img className='logo__img' src={logo} alt='Students Social Logo' />
             </Link>
             <nav className='footer__nav'>
                 <ul className='footer__list'>

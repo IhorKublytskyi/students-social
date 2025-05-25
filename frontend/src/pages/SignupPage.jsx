@@ -79,8 +79,6 @@ export default function SignupPage() {
     }
 
     async function handleSubmit(e) {
-        setRedirect(true)
-
         e.preventDefault()
 
         if (score > 1) {
@@ -209,7 +207,7 @@ export default function SignupPage() {
                     />
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
-                            label='Pick your birth date'
+                            label='Pick your birth date *'
                             value={formData.birthDate}
                             onChange={handleBirthDateChange}
                             slotProps={{
